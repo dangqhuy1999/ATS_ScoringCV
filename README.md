@@ -33,3 +33,37 @@ tasklist /FI "PID eq <PID>"
 sc query type= service state= all | findstr /I "mysql"
 net stop MySQL80
 ```
+
+
+## Commit docker
+
+Bạn có container tên là `ubuntu_client`, sau khi cài xong Python, spaCy, v.v., bạn muốn lưu lại thành image mới:
+
+```
+docker commit ubuntu_client lamianguyen99/my_custom_ubuntu:v4
+docker images
+
+```
+
+## Xoa Docker images
+
+```
+docker images
+docker rmi -f lamianguyen99/my_custom_ubuntu:v2
+
+```
+
+## Push docker images
+
+```
+## Login Docker Hub
+docker login
+docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+## Đổi tag
+docker tag lamianguyen99/my_custom_ubuntu:v3 lamianguyen99/my_custom_ubuntu:latest 
+or
+docker tag lamianguyen99/my_custom_ubuntu:v3 lamianguyen99/my_custom_ubuntu:v4
+## Push images
+docker push lamianguyen99/my_custom_ubuntu:v3
+
+```
