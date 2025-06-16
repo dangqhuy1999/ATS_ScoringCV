@@ -67,3 +67,25 @@ docker tag lamianguyen99/my_custom_ubuntu:v3 lamianguyen99/my_custom_ubuntu:v4
 docker push lamianguyen99/my_custom_ubuntu:v3
 
 ```
+
+## Clear Docker Overlay Linux
+Không nên dùng `docker system prune -a --volumes` trừ khi em chắc chắn các volume/image không còn cần nữa.
+
+Thay vào đó, chỉ dùng:
+
+```
+## PreCheck 
+
+docker volume ls
+docker image ls
+docker system df -v
+
+## Clear not use
+
+docker container prune
+docker image prune
+docker volume prune
+docker network prune
+
+```
+
