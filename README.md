@@ -9,6 +9,15 @@ docker run -d --name custom_mysql --network my_network  -e MYSQL_ROOT_PASSWORD=r
 docker run -it --rm   --name ubuntu_client   --network my_network  -p 8501:8501   lamianguyen99/my_custom_ubuntu:v2   bash
 
 
+## After that , run code with 
+
+```python
+pip install -r requirements.txt
+
+streamlit run App (1).py
+
+```
+
 ## ERROR note:
 
 ### **Error 1(Windows):**
